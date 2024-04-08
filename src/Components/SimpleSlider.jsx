@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
 import './style.css'
 import axios from "axios";
@@ -9,7 +9,7 @@ export default function SimpleSlider() {
 
 useEffect(()=>{
   fetchmovie()
-},[])
+},)
 
 
   const fetchmovie = async ()=>{
@@ -35,7 +35,7 @@ useEffect(()=>{
   return (
     <Slider  {...settings}>
       {top.map((item)=>(<div className="sliderMain" key={item.id}>
-        <img className="topSlideImage" src={`https://image.tmdb.org/t/p/original${item.backdrop_path}`}/>
+        <img className="topSlideImage" src={`https://image.tmdb.org/t/p/original${item.backdrop_path}`}alt="poster"/>
         <h1 className="title">{item.original_title?item.original_title:item.original_name}</h1>
 
       </div>))}
